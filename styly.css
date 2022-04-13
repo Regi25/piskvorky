@@ -72,14 +72,16 @@ p#explanation {
 .pravidla:hover {
   background-color: #1cbb96;
 }
-.home#symbol:hover {
+.home-symbol:hover {
   background-color: #1cbb96;
 }
 .homePage:hover {
   background-color: #1cbb96;
 }
-.zacithrat,
-.play#symbol:hover {
+.zacithrat:hover {
+  background-color: #0090e9;
+}
+.play-symbol:hover {
   background-color: #0090e9;
 }
 
@@ -176,22 +178,22 @@ img.example {
     max-width: 50%;
   }
 }
-#icon {
+.icon {
   height: 30px;
   width: 30px;
   margin: 10px;
 }
-#symbol {
+.symbol {
   border-radius: 4px;
   width: 50px;
   height: 50px;
 }
-.home#symbol {
+.home-symbol {
   border-radius: 4px;
   background-color: #1fcca4;
-  margin: 5px 1em 0 auto;
+  margin: 0px 1em 0 auto;
 }
-.play#symbol {
+.play-symbol {
   border-radius: 4px;
   background-color: #0197f6;
 }
