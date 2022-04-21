@@ -216,9 +216,13 @@ img.example {
   border: 2px solid black;
 }
 button {
-  width: 10%;
+  flex-basis: 10%;
   border: 2px solid black;
+  height: 8vmin;
   background-color: transparent;
+  cursor: pointer;
+  background-size: 0;
+  transition: ease-in 0.15s background-size;
 }
 section {
   display: flex;
@@ -230,4 +234,23 @@ section {
 }
 button:hover {
   background-color: rgb(230, 220, 225);
+}
+.board__field--circle {
+  color: black;
+  background-image: url('images/circle.svg');
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+}
+
+.board__field--cross {
+  color: black;
+  background-image: url('images/cross.svg');
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+}
+
+.board__field--circle {
+  background-image: 100%;
 }
