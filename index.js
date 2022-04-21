@@ -8,7 +8,7 @@ btns.forEach((btn) =>
     if (player == 'circle') {
       console.log(player);
       event.target.className = 'board__field--circle';
-      btn.innerHTML = '<img id="circle" src="images/circle.svg" alt="circle"/>';
+      //btn.innerHTML = '<img id="circle" src="images/circle.svg" alt="circle"/>';
       btn.disabled = true; // later I can delete
       player = 'cross';
       document.querySelector('#hraje').innerHTML =
@@ -16,7 +16,7 @@ btns.forEach((btn) =>
     } else {
       console.log(player);
       event.target.className = 'board__field--cross';
-      btn.innerHTML = '<img id="cross" src="images/cross.svg" alt="cross"/>'; //delete and replace in style.css
+      //btn.innerHTML = '<img id="cross" src="images/cross.svg" alt="cross"/>'; //delete and replace in style.css
       btn.disabled = true; // later i can delete
       player = 'circle';
       document.querySelector('#hraje').innerHTML =
