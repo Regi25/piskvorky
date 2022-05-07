@@ -3,16 +3,21 @@ let player = 'circle';
 const widthField = 10;
 const allField = document.querySelectorAll('button');
 const getPosition = (field) => {
-  for (let i = 0; i < allField.length; i++) {
-    return {
-      row: Math.floor(index / widthField),
-      column: index % widthField,
-    };
+  let index = 0;
+  while (index < allField.length) {
+    if (field === allField[index]) {
+      break;
+    }
+    index++;
   }
+
+  return {
+    row: Math.floor(index / widthField),
+    column: index % widthField,
+  };
 };
-const getField = (row, column) => {
-  return allField[row * widthField + column];
-};
+const getField = (row, column) => allField[row * widthField + column];
+
 const getSymbol = (field) => {
   if (field.className === 'board__field--circle') {
     return 'circle';
@@ -52,6 +57,7 @@ const isWinningMove = (field) => {
   if (inRow >= winningSymbols) {
     return true;
   }
+  let inColumn = 1;
   //up
   i = origin.row;
   while (i > 0 && symbol === getSymbol(getField(i - 1, origin.column))) {
@@ -71,7 +77,7 @@ const isWinningMove = (field) => {
 };
 
 let gameEnd = false;
-let previousPlayer = player;
+//let previousPlayer = player;
 btns.forEach((btn) =>
   btn.addEventListener('click', (event) => {
     if (gameEnd) {
@@ -80,25 +86,35 @@ btns.forEach((btn) =>
     if (btn.disabled) {
       return;
     }
-    if (player == 'circle') {
+
+    let previousPlayer = player;
+    if (player === 'circle') {
       console.log(player);
       event.target.className = 'board__field--circle';
-      btn.disabled = true; // later I can delete
-      player = 'cross';
+      //btn.disabled = true; // later I can delete
+      //player = 'cross';
       document.querySelector('#hraje').innerHTML =
         'HRAJE: <img id="cross" src="images/cross.svg" alt="cross"/>';
+      player = 'cross';
     } else {
       console.log(player);
       event.target.className = 'board__field--cross';
-      btn.disabled = true; // later i can delete
+      //btn.disabled = true; // later i can delete
       player = 'circle';
       document.querySelector('#hraje').innerHTML =
         'HRAJE: <img id="circle" src="images/circle.svg" alt="circle"/>';
     }
     if (isWinningMove(btn) === true) {
       gameEnd = true;
-      alert('Game is over');
-      btn.disabled;
+      //return alert('Game is over');
+      //btn.disabled;
+      setTimeout(function () {
+        confirm(`Vyhrál ${previousPlayer}. Spustit novou hru?`);
+        setTimeout(function () {
+          location.reload();
+        }, 1000);
+      }, 200);
     }
+    btn.disabled = true;
   }),
 );
